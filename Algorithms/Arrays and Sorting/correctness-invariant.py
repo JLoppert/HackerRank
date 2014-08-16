@@ -1,12 +1,15 @@
-s = int(input());
-arr = [int(i) for i in input().split(' ')];
+# Fix provided coded
 
-for i in range(s):
-    j = i;
-    if j > 0 and arr[j] < arr[j-1]:
-        while j-1 >= 0 and arr[j] < arr[j-1]:
-            tmp = arr[j-1];
-            arr[j-1] = arr[j];
-            arr[j] = tmp;
-            j -= 1;
-print(' '.join(map(str,arr)));
+def insertion_sort(l):
+    for i in range(1, len(l)):
+        j = i-1
+        key = l[i]
+        while j > -1 and key < l[j]:
+            l[j+1] = l[j]
+            j -= 1
+        l[j+1] = key
+
+m = int(input().strip())
+ar = [int(i) for i in input().strip().split()]
+insertion_sort(ar)
+print(" ".join(map(str,ar)))
